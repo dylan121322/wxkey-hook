@@ -1,0 +1,19 @@
+# Secrets
+keys.json
+captured_keys.txt
+/tmp/wxkey_captured.txt
+
+# Local-only detailed notes (not for public repo)
+原理.md
+
+# Decrypted output
+decrypted/
+
+# macOS
+.DS_Store
+*.pyc
+__pycache__/
+
+# IDE
+.vscode/
+.idea/

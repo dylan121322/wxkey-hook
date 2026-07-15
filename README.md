@@ -1,6 +1,6 @@
 # wxkey-hook
 
-**WeChat 4.x macOS database key extraction + decryption tool**
+**WeChat 4.1.x macOS database key extraction + decryption tool**
 
 [中文文档](README.zh-CN.md) · Zero pip dependencies · Pure Python stdlib + macOS `libcommonCrypto`
 
@@ -93,7 +93,7 @@ python3 wxkey.py all      # resign + extract + decrypt
 
 ## How it works (one paragraph)
 
-WeChat 4.x encrypts each database with SQLCipher 4 (AES-256-CBC, HMAC-SHA512,
+WeChat 4.1.x encrypts each database with SQLCipher 4 (AES-256-CBC, HMAC-SHA512,
 4096-byte pages, 80-byte reserve). It uses **raw-key mode**: the 32-byte key is
 the AES key directly, with no PBKDF2 stretching. All crypto routes through Apple
 CommonCrypto, not BoringSSL — which is why hooks on `PKCS5_PBKDF2_HMAC` or

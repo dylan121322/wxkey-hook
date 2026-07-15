@@ -1,6 +1,6 @@
 # wxkey-hook
 
-**微信 4.x macOS 版数据库密钥提取 + 解密工具**
+**微信 4.1.x macOS 版数据库密钥提取 + 解密工具**
 
 [English](README.md) · 零 pip 依赖 · 纯 Python stdlib + macOS `libcommonCrypto`
 
@@ -89,7 +89,7 @@ python3 wxkey.py all      # 重签 + 提取 + 解密
 
 ## 原理一段话
 
-微信 4.x 用 SQLCipher 4 加密每个数据库(AES-256-CBC、HMAC-SHA512、4096 字节页、
+微信 4.1.x 用 SQLCipher 4 加密每个数据库(AES-256-CBC、HMAC-SHA512、4096 字节页、
 80 字节 reserve),采用 **raw-key 模式**:32 字节密钥直接作为 AES key,不做 PBKDF2
 拉伸。所有加密走 Apple CommonCrypto 而非 BoringSSL —— 这就是为什么 hook
 `PKCS5_PBKDF2_HMAC` 或 `AES_set_decrypt_key` 从不命中。我们改 hook `CCCryptorCreate`

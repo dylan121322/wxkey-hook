@@ -1,4 +1,4 @@
-# WeChat 4.x macOS 数据库密钥机制
+# WeChat 4.1.x macOS 数据库密钥机制
 
 > 基于 2026-07-14 逆向分析。微信版本 4.1.11,Apple Silicon M1,macOS 15.6。
 
@@ -28,7 +28,7 @@ Page N:   encrypted_body(4016)  |  iv(16)  |  hmac(64)
 
 ## 2. Raw-Key 模式
 
-微信 4.x 使用 SQLCipher 的 **raw-key 模式**: 32 字节加密密钥(enc_key)直接作为 AES key，不做 PBKDF2 密钥派生。
+微信 4.1.x 使用 SQLCipher 的 **raw-key 模式**: 32 字节加密密钥(enc_key)直接作为 AES key，不做 PBKDF2 密钥派生。
 
 ```
 enc_key (32 bytes)  ──→  AES key (32 bytes)      ← 直接使用，不派生
